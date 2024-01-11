@@ -8,10 +8,8 @@ $preparerequest->execute();
 
 $user = $preparerequest->fetch();
 
-var_dump($user, $_POST);
 
-
-if(!empty($user)){
+if(!empty($user) && (!empty($_POST['messages']) && (!empty($_POST['user_name'])))){
     
     $preparedRequest = $connexion->prepare(
         "INSERT INTO UserMessages (messages , user_ip , user_id , dateHour) VALUES (?,?,?,?)"
@@ -19,15 +17,20 @@ if(!empty($user)){
     $preparedRequest->execute([
         $_POST['messages'],
         $_POST['user_ip'],
-        $user['user_name'],
-        date("Y-m-d H:i:s")
+        $user['id'],
+        date("d-m-y h:i:s")
         
-    ]
+    ]);
+    
+    $valeurcookie = $_POST['user_name'];
+    setcookie('username_cookie' , $valeurcookie, time()+3600, "/");
+    
+    header('Location: ../index.php');
 
-    );
-}else{
+}else if(!empty($_POST['messages']) && !empty($_POST['user_name'])){
     
     $preparedRequest = $connexion->prepare("INSERT INTO ChatUsers (user_name) VALUES (?)");
+
     $preparedRequest->execute([
         $_POST['user_name']
     ]);
@@ -42,10 +45,18 @@ if(!empty($user)){
         $_POST['messages'],
         $_POST['user_ip'],
         $userID,
-        date("Y-m-d H:i:s")
+        date("d-m-y h:i:s")
         
+      
     ]);
-        
+    $valeurcookie = $_POST['user_name'];
+    setcookie('username_cookie' , $valeurcookie, time()+3600, "/");
+    
+    header('Location: ../index.php');
+    }else{
+    header('Location: ../index.php');
+
+
     }
 
 
