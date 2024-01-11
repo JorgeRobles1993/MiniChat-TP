@@ -1,20 +1,8 @@
 <?php
 require_once './config/connexion.php';
 include './partials/header.php';
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-  
 
 
-<?php
 // $prepareRequest = $connexion->prepare("SELECT ChatUsers.user_name , UserMessages.messages , UserMessages.dateHour FROM `UserMessages` LEFT JOIN ChatUsers ON UserMessages.user_id = ChatUsers.id ORDER BY `UserMessages`. `dateHour` ASC;");
 
 $prepareRequest =  $connexion->prepare(
@@ -150,9 +138,7 @@ if(isset($_COOKIE['username_cookie'])){ ?>
 
 
 </footer>
-  <script src="./javascript/index.js"></script>
-</body>
-</html>
+
 
 <?php
 include './partials/footer.php'

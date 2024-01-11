@@ -17,16 +17,17 @@ form.addEventListener('submit', function (e) {
     formData.append('messages', todoContent)
 
     // 3. Je lance ma requête en js à la place du formulaire
-    fetch('./process/process_create_ajax.php', {
+    fetch('./process/process-create-ajax.php', {
         method: "POST", 
         body: formData
-    }).then((response)=>{
+    }).then((response)=>{    
+        console.log("MOI", response);
         return response.text();
     }).then((data)=>{
         // 4. Je vide l'input
         document.querySelector('#messages').value ='' 
         getTodos()
-        console.log("MOI", response);
+    
     })
 
 })
@@ -35,7 +36,7 @@ form.addEventListener('submit', function (e) {
 
 
 async function getTodos(){
-    const response = await fetch('./process/process_get_all.php');
+    const response = await fetch('./process/process-get-all.php');
     const data = await response.json();
     console.log(data);
     let ul = document.querySelector('ul');

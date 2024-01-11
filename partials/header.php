@@ -14,10 +14,3 @@
 
 
     <h1 class="d-flex justify-content-center text-white mt-5">  DevilChat  </h1>
-
-
-
-
-
-    <script src="../index.js"></script>
-</body>
