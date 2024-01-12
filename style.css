@@ -10,3 +10,7 @@ body{
     padding: 10px;
     background-color: #fff;
 }
+
+ul{
+    list-style: none;
+}
