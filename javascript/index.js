@@ -50,8 +50,12 @@ async function getTodos(){
         
         ul.innerHTML += `
         <li class="border border-3 border-black rounded-pill p-3 m-2">  <i class="fa-regular fa-comment fa-2xl"></i><span class="fw-bold"> 
-        ${todo.user_name}:  </span> ${todo.messages} ${todo.user_ip} </li>
+        ${todo.user_name}</span>  says:      ${todo.messages}</li>
         `
+
+        const el = document.querySelector('.chat-container');
+        
+            el.scrollTop = el.scrollHeight;
     });
     
 }
@@ -63,3 +67,6 @@ async function getTodos(){
 setInterval(() => {
     getTodos()
 }, 3000);
+
+
+

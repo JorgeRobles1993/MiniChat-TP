@@ -31,7 +31,7 @@ $listusers = $prepareRequest->fetchAll(PDO::FETCH_ASSOC);
 <!-- chat window -->
 <section class="container">
 
-  <div class="row align-items-start">
+  <div class="row align-items-start" id="chat-window">
     <div class="chat-container col-9 border rounded ">
 
       <ul>
@@ -94,7 +94,7 @@ if (isset($_COOKIE['username_cookie'])) { ?>
       <form action="./process/addUser+Message.php" method="post">
         <div class="input-group p-3 m-2">
 
-          <span class="input-group-text" id="basic-addon1"><img class="fa-beat" width="30px" src="./images/red-devil-png.png" alt="" srcset=""></span>
+          <span class="input bg-transparent m-2" id="basic-addon1"><img class="fa-beat bg-transparent" width="30px" src="./images/red-devil-png.png" alt="" srcset=""></span>
           <input type="text" class="form col-2 rounded" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" id="username" name="user_name">
         </div>
 
