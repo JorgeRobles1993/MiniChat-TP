@@ -24,8 +24,8 @@ $listusers = $prepareRequest->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
 
-<div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="3" aria-valuemin="0" aria-valuemax="100">
-  <div class="progress-bar bg-primary" style="width: 70%">70%</div>
+<div class="progress" role="progressbar" aria-label="Success example" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100">
+  <div class="progress-bar bg-primary" style="width: 80%">80%</div>
 </div>
 
 <!-- chat window -->
@@ -117,11 +117,6 @@ if (isset($_COOKIE['username_cookie'])) { ?>
 <input type="button" value="saludame" onclick="ajaxfunction();"> -->
 
 
-
-<footer>
-
-
-</footer>
 
 
 <?php
